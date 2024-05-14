@@ -1,4 +1,4 @@
 com\mycompany\programacion2_profinal\App.class
-com\mycompany\programacion2_profinal\PrimaryController.class
 module-info.class
-com\mycompany\programacion2_profinal\SecondaryController.class
+com\mycompany\programacion2_profinal\RegisterController.class
+com\mycompany\programacion2_profinal\LoginController.class
