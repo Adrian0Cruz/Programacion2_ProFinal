@@ -14,7 +14,8 @@ public class App extends Application {
     public void start(Stage stage) throws IOException {
         BorderPane bp = new BorderPane();
         scene = new Scene(loadFXML("Register"), 900, 600);
-        final double[] xOffset = {0};
+        
+        /*final double[] xOffset = {0};
         final double[] yOffset = {0};
         bp.setOnMousePressed(event -> {
             xOffset[0] = event.getSceneX();
@@ -23,7 +24,8 @@ public class App extends Application {
         bp.setOnMouseDragged(event -> {
             stage.setX(event.getScreenX() - xOffset[0]);
             stage.setY(event.getScreenY() - yOffset[0]);
-        });
+        });*/
+        
         scene = new Scene(loadFXML("Register"), 900, 600);
         stage.setScene(scene);
         stage.initStyle(StageStyle.UNDECORATED);

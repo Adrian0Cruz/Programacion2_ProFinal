@@ -23,24 +23,29 @@
                   <Image url="@../../../Image/Car.jpg" />
                </image>
             </ImageView>
-            <Button fx:id="ExitBut" layoutX="382.0" layoutY="14.0" mnemonicParsing="false" onAction="#Exit" text="X" textFill="RED">
+            <Button fx:id="ExitBut" focusTraversable="false" layoutX="382.0" layoutY="14.0" mnemonicParsing="false" onAction="#Exit" text="X" textFill="RED">
                <font>
                   <Font name="System Bold" size="16.0" />
                </font>
             </Button>
          </children>
       </Pane>
-      <TextField focusTraversable="false" layoutX="97.0" layoutY="284.0" prefHeight="32.0" prefWidth="256.0" promptText="User Name">
+      <TextField fx:id="User" focusTraversable="false" layoutX="97.0" layoutY="284.0" prefHeight="32.0" prefWidth="256.0" promptText="User Name">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
       </TextField>
-      <TextField focusTraversable="false" layoutX="95.0" layoutY="357.0" prefHeight="32.0" prefWidth="256.0" promptText="Pass Word">
+      <TextField fx:id="Word" focusTraversable="false" layoutX="95.0" layoutY="357.0" prefHeight="32.0" prefWidth="256.0" promptText="Pass Word">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
       </TextField>
-      <Button fx:id="primaryButton" focusTraversable="false" layoutX="182.0" layoutY="434.0" onAction="#switchToSecondary" prefHeight="32.0" text="Registrarse">
+      <Button fx:id="primaryButton" layoutX="97.0" layoutY="434.0" onAction="#CrearCuenta" prefHeight="32.0" text="Registrarse">
+         <font>
+            <Font name="System Bold Italic" size="16.0" />
+         </font>
+      </Button>
+      <Button fx:id="primaryButton1" focusTraversable="false" layoutX="256.0" layoutY="434.0" onAction="#ChangeLogin" prefHeight="32.0" text="Iniciar Sesion">
          <font>
             <Font name="System Bold Italic" size="16.0" />
          </font>
