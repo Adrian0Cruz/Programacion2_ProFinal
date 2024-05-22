@@ -39,7 +39,7 @@
             <Font name="System Bold" size="16.0" />
          </font>
       </Button>
-      <Button focusTraversable="false" layoutX="545.0" layoutY="434.0" onAction="#ChangeRegister" prefHeight="32.0" text="Crear Cuenta">
+      <Button focusTraversable="false" layoutX="507.0" layoutY="434.0" onAction="#ChangeRegister" prefHeight="32.0" text="¿No Tienes Cuenta?">
          <font>
             <Font name="System Bold Italic" size="16.0" />
          </font>

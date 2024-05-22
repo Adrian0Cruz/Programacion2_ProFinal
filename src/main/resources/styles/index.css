@@ -3,5 +3,11 @@
  */
 
 .mainFxmlClass {
+    #titulo {
+        -fx-font-family: "Helvetica";
+        -fx-font-style: italic;
+        -fx-font-size: 36px;
+        -fx-text-fill: #FFFFFF;
+    }
 
 }

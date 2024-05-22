@@ -1,12 +1,13 @@
 package com.mycompany.programacion2_profinal;
 
-import Logic.List_User;
+import Logic.*;
 import java.io.IOException;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 
 public class RegisterController {
-    List_User L = new List_User ( );
+    private UserListSingleton userListSingleton = UserListSingleton.getInstance();
+    private List_User userList = userListSingleton.getUserList (  );
     
     @FXML
     private TextField User;
@@ -20,12 +21,12 @@ public class RegisterController {
     @FXML
     private void Exit (  ) throws IOException { System.exit ( 0 ); }
     @FXML
-    private void ChangeLogin (  ) throws IOException { App.setRoot("Login"); }
+    private void ChangeLogin (  ) throws IOException { App.setRoot ( "Login" ); }
     @FXML
     private void CrearCuenta (  ) throws IOException {
         String U = User.getText (  );
         String Pw = Word.getText (  );
-        L.add( U, Pw );
-        App.setRoot("Login");
+        userList.add ( U, Pw );
+        App.setRoot ( "Login" );
     }
 }

@@ -10,7 +10,7 @@
         <URL value="@/styles/index.css" />
     </stylesheets>
    <children>
-      <Button layoutX="854.0" layoutY="14.0" mnemonicParsing="false" onAction="#Exit" text="X" textFill="RED">
+      <Button layoutX="854.0" layoutY="14.0" mnemonicParsing="false" onAction="#Exit" stylesheets="@../../../styles/index.css" text="X" textFill="RED">
          <font>
             <Font name="System Bold Italic" size="16.0" />
          </font>

@@ -1,4 +1,5 @@
 Logic\Node.class
+Logic\UserListSingleton.class
 Logic\User.class
 com\mycompany\programacion2_profinal\App.class
 com\mycompany\programacion2_profinal\IndexController.class
