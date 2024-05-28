@@ -7,6 +7,18 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
+    <dependencies>
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-controls</artifactId>
+            <version>13</version>
+        </dependency>
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-fxml</artifactId>
+            <version>13</version>
+        </dependency>
+    </dependencies>
     <build>
         <plugins>
             <plugin>
@@ -66,18 +78,4 @@
             </plugin>
         </plugins>
     </build>
-    <dependencies>
-        <dependency>
-            <groupId>org.openjfx</groupId>
-            <artifactId>javafx-graphics</artifactId>
-            <version>23-ea+3</version>
-            <type>jar</type>
-        </dependency>
-        <dependency>
-            <groupId>org.jfxcore</groupId>
-            <artifactId>javafx-fxml</artifactId>
-            <version>18-ea+1</version>
-            <type>jar</type>
-        </dependency>
-    </dependencies>
 </project>
