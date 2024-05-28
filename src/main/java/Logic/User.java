@@ -21,6 +21,5 @@ public class User extends Node {
     }
 
     @Override
-    public String toString (  ) {
-        return "User{" + "Name=" + Name + ", PassWord=" + PassWord + '}'; }
+    public String toString (  ) { return Name + "=" + PassWord; }
 }

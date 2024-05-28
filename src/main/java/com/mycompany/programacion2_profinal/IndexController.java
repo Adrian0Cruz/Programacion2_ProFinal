@@ -13,5 +13,6 @@ public class IndexController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }
-
+    @FXML
+    private void Close (  ) throws IOException { App.setRoot ( "Login" ); }
 }

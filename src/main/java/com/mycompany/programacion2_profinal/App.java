@@ -1,4 +1,6 @@
 package com.mycompany.programacion2_profinal;
+import Logic.List_User;
+import Logic.UserListSingleton;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -13,8 +15,8 @@ public class App extends Application {
     @Override
     public void start ( Stage stage ) throws IOException {
         BorderPane bp = new BorderPane();
-
-        /*final double[] xOffset = {0};
+        userList.ImportUsers();
+        final double[] xOffset = {0};
         final double[] yOffset = {0};
         bp.setOnMousePressed(event -> {
             xOffset[0] = event.getSceneX();
@@ -23,7 +25,7 @@ public class App extends Application {
         bp.setOnMouseDragged(event -> {
             stage.setX(event.getScreenX() - xOffset[0]);
             stage.setY(event.getScreenY() - yOffset[0]);
-        });*/
+        });
         
         scene = new Scene ( loadFXML ( "Register" ), 900, 600 );
         stage.setScene ( scene );
@@ -37,5 +39,7 @@ public class App extends Application {
         FXMLLoader fxmlLoader = new FXMLLoader ( App.class.getResource ( fxml + ".fxml" ) );
         return fxmlLoader.load (  );
     }
-    public static void main(String[] args) { launch(); }
+    private UserListSingleton userListSingleton = UserListSingleton.getInstance();
+    private List_User userList = userListSingleton.getUserList();
+    public static void main ( String[] args ) { launch(); }
 }

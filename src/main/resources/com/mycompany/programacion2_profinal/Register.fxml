@@ -28,9 +28,14 @@
                   <Font name="System Bold" size="16.0" />
                </font>
             </Button>
+            <Button fx:id="primaryButton1" focusTraversable="false" layoutX="159.0" layoutY="434.0" onAction="#ChangeLogin" prefHeight="32.0" text="¿Ya Tienes Cuenta?">
+               <font>
+                  <Font name="System Bold Italic" size="16.0" />
+               </font>
+            </Button>
          </children>
       </Pane>
-      <TextField fx:id="User" focusTraversable="false" layoutX="97.0" layoutY="284.0" prefHeight="32.0" prefWidth="256.0" promptText="User Name">
+      <TextField fx:id="User" layoutX="97.0" layoutY="284.0" prefHeight="32.0" prefWidth="256.0" promptText="User Name">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
@@ -40,12 +45,7 @@
             <Font name="System Bold" size="14.0" />
          </font>
       </TextField>
-      <Button fx:id="primaryButton" layoutX="97.0" layoutY="434.0" onAction="#CrearCuenta" prefHeight="32.0" text="Registrarse">
-         <font>
-            <Font name="System Bold Italic" size="16.0" />
-         </font>
-      </Button>
-      <Button fx:id="primaryButton1" focusTraversable="false" layoutX="256.0" layoutY="434.0" onAction="#ChangeLogin" prefHeight="32.0" text="¿Ya Tienes Cuenta?">
+      <Button fx:id="primaryButton" layoutX="181.0" layoutY="434.0" onAction="#CrearCuenta" prefHeight="32.0" text="Registrarse">
          <font>
             <Font name="System Bold Italic" size="16.0" />
          </font>

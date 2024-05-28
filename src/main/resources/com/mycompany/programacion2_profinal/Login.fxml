@@ -17,14 +17,19 @@
                   <Font name="System Bold Italic" size="32.0" />
                </font>
             </Label>
+            <Button focusTraversable="false" layoutX="175.0" layoutY="434.0" onAction="#ChangeRegister" prefHeight="32.0" text="¿No Tienes Cuenta?">
+               <font>
+                  <Font name="System Bold Italic" size="16.0" />
+               </font>
+            </Button>
          </children>
       </Pane>
-      <TextField fx:id="User" focusTraversable="false" layoutX="547.0" layoutY="284.0" prefHeight="32.0" prefWidth="256.0" promptText="User Name">
+      <TextField fx:id="User" layoutX="547.0" layoutY="284.0" prefHeight="32.0" prefWidth="256.0" promptText="User Name">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
       </TextField>
-        <Button fx:id="secondaryButton" layoutX="681.0" layoutY="434.0" onAction="#Cheack" prefHeight="32.0" text="Iniciar Sesion">
+        <Button fx:id="secondaryButton" layoutX="614.0" layoutY="434.0" onAction="#Cheack" prefHeight="32.0" text="Iniciar Sesion">
          <font>
             <Font name="System Bold Italic" size="16.0" />
          </font>
@@ -37,11 +42,6 @@
       <Button fx:id="ExitBut" focusTraversable="false" layoutX="855.0" layoutY="14.0" mnemonicParsing="false" onAction="#Exit" text="X" textFill="RED">
          <font>
             <Font name="System Bold" size="16.0" />
-         </font>
-      </Button>
-      <Button focusTraversable="false" layoutX="507.0" layoutY="434.0" onAction="#ChangeRegister" prefHeight="32.0" text="¿No Tienes Cuenta?">
-         <font>
-            <Font name="System Bold Italic" size="16.0" />
          </font>
       </Button>
    </children>
