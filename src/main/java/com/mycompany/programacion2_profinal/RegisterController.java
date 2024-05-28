@@ -24,6 +24,14 @@ public class RegisterController {
     private void ChangeLogin (  ) throws IOException { App.setRoot ( "Login" ); }
     @FXML
     private void CrearCuenta (  ) throws IOException {
+        if (  User.getText().isBlank()  ) {
+            System.out.println("crees que so bobo?");
+            return;
+        }
+        if (  Word.getText().isBlank()  ) {
+            System.out.println("crees que so bobo pol 2?");
+            return;
+        }
         String U = User.getText (  );
         String Pw = Word.getText (  );
         userList.add ( U, Pw );
