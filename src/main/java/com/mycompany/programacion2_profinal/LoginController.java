@@ -25,4 +25,8 @@ public class LoginController {
         String Pw = Word.getText (  );
         if ( userList.Cheak ( U, Pw ) ) { App.setRoot ( "Index" ); }
     }
+    @FXML
+    private void Forget (  ) throws IOException {
+        
+    }
 }
