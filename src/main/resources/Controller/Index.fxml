@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" fx:id="But_Exit" onDragDetected="#Exit" prefHeight="600.0" prefWidth="900.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.programacion2_profinal.IndexController">
+<AnchorPane id="AnchorPane" fx:id="But_Exit" onDragDetected="#Exit" prefHeight="600.0" prefWidth="900.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.IndexController">
     <stylesheets>
         <URL value="@/styles/index.css" />
     </stylesheets>

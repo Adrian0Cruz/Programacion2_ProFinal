@@ -1,4 +1,4 @@
-package com.mycompany.programacion2_profinal;
+package Controller;
 
 import Logic.*;
 import java.io.IOException;
@@ -6,7 +6,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 
 public class RegisterController {
-    private UserListSingleton userListSingleton = UserListSingleton.getInstance();
+private UserListSingleton userListSingleton = UserListSingleton.getInstance();
     private List_User userList = userListSingleton.getUserList (  );
     
     @FXML
@@ -14,27 +14,28 @@ public class RegisterController {
     @FXML
     private TextField Word;
     
-    /*Alert alert = new Alert ( Alert.AlertType.INFORMATION );
-    alert.setTitle ( "Información" );
-    alert.setHeaderText ( null );*/
+    Alert alert = new Alert ( Alert.AlertType.INFORMATION );
+    
     
     @FXML
     private void Exit (  ) throws IOException { System.exit ( 0 ); }
     @FXML
-    private void ChangeLogin (  ) throws IOException { App.setRoot ( "Login" ); }
+    private void ChangeLogin (  ) throws IOException { Main.setRoot ( "Login" ); }
     @FXML
     private void CrearCuenta (  ) throws IOException {
         if (  User.getText().isBlank()  ) {
-            System.out.println("crees que so bobo?");
+            alert.setContentText("Crees que soy bobo?");
+            alert.showAndWait();
             return;
         }
         if (  Word.getText().isBlank()  ) {
-            System.out.println("crees que so bobo pol 2?");
+            alert.setContentText("Crees que soy bobo pol 2?");
+            alert.showAndWait();
             return;
         }
         String U = User.getText (  );
         String Pw = Word.getText (  );
         userList.add ( U, Pw );
-        App.setRoot ( "Login" );
+        Main.setRoot ( "Login" );
     }
 }
