@@ -4,6 +4,8 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
@@ -22,26 +24,41 @@
                   <Font name="System Bold Italic" size="16.0" />
                </font>
             </Button>
+            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="150.0" layoutY="75.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Image/acceso-seguro.png" />
+               </image>
+            </ImageView>
          </children>
       </Pane>
+      <ImageView fitHeight="32.0" fitWidth="32.0" layoutX="512.0" layoutY="284.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Image/usuario.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="32.0" fitWidth="32.0" layoutX="512.0" layoutY="350.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Image/contrasena.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="ExitBut" focusTraversable="false" layoutX="855.0" layoutY="14.0" mnemonicParsing="false" onAction="#Exit" text="X" textFill="RED">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Button>
       <TextField fx:id="User" layoutX="547.0" layoutY="284.0" prefHeight="32.0" prefWidth="256.0" promptText="User Name">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
       </TextField>
-        <Button fx:id="secondaryButton" layoutX="614.0" layoutY="434.0" onAction="#Cheack" prefHeight="32.0" text="Iniciar Sesion">
-         <font>
-            <Font name="System Bold Italic" size="16.0" />
-         </font>
-      </Button>
       <PasswordField fx:id="Word" layoutX="547.0" layoutY="350.0" prefHeight="32.0" prefWidth="256.0" promptText="Pass Word">
          <font>
             <Font size="14.0" />
          </font>
       </PasswordField>
-      <Button fx:id="ExitBut" focusTraversable="false" layoutX="855.0" layoutY="14.0" mnemonicParsing="false" onAction="#Exit" text="X" textFill="RED">
+        <Button fx:id="secondaryButton" layoutX="614.0" layoutY="434.0" onAction="#Cheack" prefHeight="32.0" text="Iniciar Sesion">
          <font>
-            <Font name="System Bold" size="16.0" />
+            <Font name="System Bold Italic" size="16.0" />
          </font>
       </Button>
    </children>

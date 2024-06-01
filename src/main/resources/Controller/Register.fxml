@@ -13,21 +13,21 @@
    <children>
       <Pane layoutX="450.0" prefHeight="600.0" prefWidth="450.0" style="-fx-background-color: lightblue; -fx-background-radius: 4%;">
          <children>
-            <Label layoutX="171.0" layoutY="277.0" text="LOG IN">
-               <font>
-                  <Font name="System Bold Italic" size="32.0" />
-               </font>
-            </Label>
-            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="125.0" layoutY="75.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../../Image/Car.jpg" />
-               </image>
-            </ImageView>
             <Button fx:id="ExitBut" focusTraversable="false" layoutX="382.0" layoutY="14.0" mnemonicParsing="false" onAction="#Exit" text="X" textFill="RED">
                <font>
                   <Font name="System Bold" size="16.0" />
                </font>
             </Button>
+            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="150.0" layoutY="75.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Image/carrito-de-compras.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="171.0" layoutY="277.0" text="LOG IN">
+               <font>
+                  <Font name="System Bold Italic" size="32.0" />
+               </font>
+            </Label>
             <Button fx:id="primaryButton1" focusTraversable="false" layoutX="159.0" layoutY="434.0" onAction="#ChangeLogin" prefHeight="32.0" text="¿Ya Tienes Cuenta?">
                <font>
                   <Font name="System Bold Italic" size="16.0" />
@@ -50,5 +50,15 @@
             <Font name="System Bold Italic" size="16.0" />
          </font>
       </Button>
+      <ImageView fitHeight="32.0" fitWidth="32.0" layoutX="48.0" layoutY="284.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Image/usuario.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="32.0" fitWidth="32.0" layoutX="48.0" layoutY="357.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Image/contrasena.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>
