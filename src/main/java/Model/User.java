@@ -1,4 +1,4 @@
-package Logic;
+package Model;
 //@author Jesús Hernández
 public class User extends Node {
     private String Name;

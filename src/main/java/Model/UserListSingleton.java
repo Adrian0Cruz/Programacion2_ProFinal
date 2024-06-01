@@ -1,9 +1,8 @@
-package Logic;
+package Model;
 //@author Jesús Hernández
 public class UserListSingleton {
     private static UserListSingleton instance;
     private List_User userList;
-
     private UserListSingleton (  ) { userList = new List_User(); }
 
     public static UserListSingleton getInstance() {
