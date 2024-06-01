@@ -9,5 +9,7 @@
         -fx-font-size: 36px;
         -fx-text-fill: #FFFFFF;
     }
-
+    #AnchorPane{
+        /*-fx-background-color: #000000;*/
+    }
 }
