@@ -37,7 +37,7 @@ private static Scene scene;
         FXMLLoader fxmlLoader = new FXMLLoader ( Main.class.getResource ( fxml + ".fxml" ) );
         return fxmlLoader.load (  );
     }
-    private UserListSingleton userListSingleton = UserListSingleton.getInstance();
-    private List_User userList = userListSingleton.getUserList();
+    private final UserListSingleton userListSingleton = UserListSingleton.getInstance();
+    private final List_User userList = userListSingleton.getUserList();
     public static void main ( String[] args ) { launch(); }
 }

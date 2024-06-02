@@ -2,12 +2,13 @@ package Controller;
 
 import Model.*;
 import java.io.IOException;
+import java.util.prefs.Preferences;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 
 public class LoginController {
-private UserListSingleton userListSingleton = UserListSingleton.getInstance();
-    private List_User userList = userListSingleton.getUserList();
+    private final UserListSingleton userListSingleton = UserListSingleton.getInstance();
+    private final List_User userList = userListSingleton.getUserList();
     Alert alert;
     
     @FXML
@@ -33,10 +34,32 @@ private UserListSingleton userListSingleton = UserListSingleton.getInstance();
             alert.showAndWait();
             return;
         }
-        if ( userList.Cheak ( U, Pw ) ) { Main.setRoot ( "Index" ); }
+        if ( userList.Cheak ( U, Pw ) ) {
+            Preferences userPrefs = Preferences.userRoot().node(this.getClass().getName());
+            userPrefs.put("loggedInUser", U);
+            Main.setRoot ( "Index" );
+        }
     }
     @FXML
     private void Forget (  ) throws IOException {
         
+    }
+    @FXML
+    private void initialize() {
+        Preferences userPrefs = Preferences.userRoot().node(RegisterController.class.getName());
+        boolean isNewAccount = userPrefs.getBoolean("isNewAccount", false);
+        
+        if (isNewAccount) {
+            String lastRegisteredUser = userPrefs.get("lastRegisteredUser", "");
+            String lastRegisteredPassword = userPrefs.get("lastRegisteredPassword", "");
+            
+            User.setText(lastRegisteredUser);
+            Word.setText(lastRegisteredPassword);
+            
+            // Eliminar las preferencias después de su uso
+            userPrefs.remove("isNewAccount");
+            userPrefs.remove("lastRegisteredUser");
+            userPrefs.remove("lastRegisteredPassword");
+        }
     }
 }

@@ -2,12 +2,13 @@ package Controller;
 
 import Model.*;
 import java.io.IOException;
+import java.util.prefs.Preferences;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.Alert;
 public class RegisterController {
-private UserListSingleton userListSingleton = UserListSingleton.getInstance();
-    private List_User userList = userListSingleton.getUserList (  );
+    private final UserListSingleton userListSingleton = UserListSingleton.getInstance();
+    private final List_User userList = userListSingleton.getUserList (  );
     Alert alert;
     
     @FXML
@@ -34,6 +35,12 @@ private UserListSingleton userListSingleton = UserListSingleton.getInstance();
         String U = User.getText (  );
         String Pw = Word.getText (  );
         userList.add ( U, Pw );
+        
+        Preferences userPrefs = Preferences.userRoot().node(this.getClass().getName());
+        userPrefs.putBoolean("isNewAccount", true);
+        userPrefs.put("lastRegisteredUser", U);
+        userPrefs.put("lastRegisteredPassword", Pw);
+        
         Main.setRoot ( "Login" );
     }
 }
