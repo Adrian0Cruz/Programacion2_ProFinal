@@ -15,6 +15,11 @@
         <URL value="@/Styles/Index.css" />
     </stylesheets>
    <children>
+      <ImageView fitHeight="48.0" fitWidth="48.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Image/usuario.png" />
+         </image>
+      </ImageView>
       <Label layoutX="64.0" layoutY="14.0" text="HOLA!">
          <font>
             <Font name="System Bold" size="16.0" />
@@ -36,7 +41,7 @@
          </font>
       </Button>
       <Separator focusTraversable="false" layoutY="64.0" prefWidth="900.0" style="-fx-background-color: black;" />
-      <Pane layoutX="686.0" layoutY="86.0" prefHeight="500.0" prefWidth="200.0" style="-fx-background-color: gray;">
+      <Pane layoutX="686.0" layoutY="86.0" prefHeight="500.0" prefWidth="200.0" style="-fx-background-color: lightblue; -fx-background-radius: 8%;">
          <children>
             <Button layoutX="36.0" layoutY="16.0" mnemonicParsing="false" onAction="#Close" prefHeight="32.0" prefWidth="128.0" text="Catalogo">
                <font>
@@ -79,10 +84,5 @@
                </font>
             </Button>
          </children></Pane>
-      <ImageView fitHeight="48.0" fitWidth="48.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../Image/usuario.png" />
-         </image>
-      </ImageView>
    </children>
 </AnchorPane>

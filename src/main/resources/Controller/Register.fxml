@@ -9,9 +9,9 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="600.0" prefWidth="900.0" style="-fx-background-radius: 4%;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.RegisterController">
+<AnchorPane prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.RegisterController">
    <children>
-      <Pane layoutX="450.0" prefHeight="600.0" prefWidth="450.0" style="-fx-background-color: lightblue; -fx-background-radius: 4%;">
+      <Pane fx:id="pane" layoutX="450.0" prefHeight="600.0" prefWidth="450.0" style="-fx-background-color: lightblue; -fx-background-radius: 8% 0 0 8%;">
          <children>
             <Button fx:id="ExitBut" focusTraversable="false" layoutX="382.0" layoutY="14.0" mnemonicParsing="false" onAction="#Exit" text="X" textFill="RED">
                <font>

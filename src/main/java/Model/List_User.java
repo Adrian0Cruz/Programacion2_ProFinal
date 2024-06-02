@@ -7,6 +7,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.PrintWriter;
+import javafx.scene.control.Alert;
 
 public class List_User {
     private User Cab;
@@ -27,24 +28,28 @@ public class List_User {
             return Cont;
         }
     }
-    
-    public void add ( String Name, String PassWord ) {
-        if ( SearchCod ( Name ) != null ) {
-            System.out.println("El usuario '" + Name + "' ya existe. No se agregará.");
-            return;
+
+    public boolean add(String Name, String PassWord) {
+        if (SearchCod(Name) != null) {
+            Alert alert = new Alert(Alert.AlertType.ERROR, "El usuario '" + Name + "' ya existe. No se agregará.");
+            alert.showAndWait();
+            return false; // Devuelve false si el usuario ya existe
         }
-        User nuevoElemento = new User ( Name, PassWord );
-        if ( Cab == null ) Cab = nuevoElemento;
-        else{
+        User nuevoElemento = new User(Name, PassWord);
+        if (Cab == null) {
+            Cab = nuevoElemento;
+        } else {
             User ultimoElemento = Cab;
-            while ( ultimoElemento.Sig != null )
-                ultimoElemento = ( User ) ultimoElemento.Sig;
+            while (ultimoElemento.Sig != null) {
+                ultimoElemento = (User) ultimoElemento.Sig;
+            }
             ultimoElemento.Sig = nuevoElemento;
             nuevoElemento.Ant = ultimoElemento;
         }
         UserTxt();
+        return true; // Devuelve true si el usuario fue agregado con éxito
     }
-    
+
     public boolean Cheak ( String User, String PassWord ) {
         User A = Cab;
         while ( A != null ) {

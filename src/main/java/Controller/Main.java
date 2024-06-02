@@ -1,4 +1,5 @@
 package Controller;
+
 import Model.*;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -6,38 +7,63 @@ import javafx.scene.*;
 import javafx.stage.*;
 import java.io.IOException;
 import static javafx.application.Application.launch;
-import javafx.scene.layout.*;
 //JavaFX Main Jesus Hernandez
+
 public class Main extends Application {
-private static Scene scene;
+
+    private static double xOffset = 0;
+    private static double yOffset = 0;
+    private static Scene scene;
+
     @Override
-    public void start ( Stage stage ) throws IOException {
-        BorderPane bp = new BorderPane();
+    public void start(Stage stage) throws IOException {
         userList.ImportUsers();
-        final double[] xOffset = {0};
-        final double[] yOffset = {0};
-        bp.setOnMousePressed(event -> {
-            xOffset[0] = event.getSceneX();
-            yOffset[0] = event.getSceneY();
+
+        // Cargar la vista inicial
+        Parent root = loadFXML("Register");
+
+        // Crear una nueva escena con la vista cargada
+        scene = new Scene(root, 900, 600);
+
+        // Aplicar eventos de arrastre a la escena
+        scene.setOnMousePressed(event -> {
+            xOffset = event.getSceneX();
+            yOffset = event.getSceneY();
         });
-        bp.setOnMouseDragged(event -> {
-            stage.setX(event.getScreenX() - xOffset[0]);
-            stage.setY(event.getScreenY() - yOffset[0]);
+        scene.setOnMouseDragged(event -> {
+            stage.setX(event.getScreenX() - xOffset);
+            stage.setY(event.getScreenY() - yOffset);
         });
-        
-        scene = new Scene ( loadFXML ( "Register" ), 900, 600 );
-        stage.setScene ( scene );
-        stage.initStyle ( StageStyle.UNDECORATED );
-        stage.show (  );
+
+        // Establecer la escena en el escenario y mostrar
+        stage.setScene(scene);
+        stage.initStyle(StageStyle.UNDECORATED);
+        stage.show();
     }
-    static void setRoot ( String fxml ) throws IOException {
-        scene.setRoot ( loadFXML ( fxml ) );
+
+    static void setRoot(String fxml) throws IOException {
+        Parent root = loadFXML(fxml);
+
+        // Aplicar eventos de arrastre a la nueva vista cargada
+        root.setOnMousePressed(event -> {
+            xOffset = event.getSceneX();
+            yOffset = event.getSceneY();
+        });
+        root.setOnMouseDragged(event -> {
+            Stage stage = (Stage) scene.getWindow();
+            stage.setX(event.getScreenX() - xOffset);
+            stage.setY(event.getScreenY() - yOffset);
+        });
+
+        scene.setRoot(root);
     }
-    private static Parent loadFXML ( String fxml ) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader ( Main.class.getResource ( fxml + ".fxml" ) );
-        return fxmlLoader.load (  );
+
+    private static Parent loadFXML(String fxml) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource(fxml + ".fxml"));
+        return fxmlLoader.load();
     }
     private final UserListSingleton userListSingleton = UserListSingleton.getInstance();
     private final List_User userList = userListSingleton.getUserList();
-    public static void main ( String[] args ) { launch(); }
+
+    public static void main(String[] args) { launch(); }
 }
