@@ -1,3 +1,62 @@
-Adrian_Cruz=123456789
-Kyo=456789123
-Mr_Cris=789123456
+<ListaDeUsuarios>
+	<Usuario>
+		Nombre: Adrian_Cruz
+		Contraseña: 123456789
+		<ListaDeCompras>
+			<Item>
+				Id: 1
+				Nombre: poto
+				Precio: 5.0
+				Cantidad: 5
+				Total: 25.0
+			</Item>
+		</ListaDeCompras>
+	</Usuario>
+	<Usuario>
+		Nombre: Kyo
+		Contraseña: 456789123
+		<ListaDeCompras>
+			<Item>
+				Id: 3
+				Nombre: poto
+				Precio: 5.0
+				Cantidad: 5
+				Total: 25.0
+			</Item>
+			<Item>
+				Id: 2
+				Nombre: poto
+				Precio: 5.0
+				Cantidad: 5
+				Total: 25.0
+			</Item>
+			<Item>
+				Id: 1
+				Nombre: poto
+				Precio: 5.0
+				Cantidad: 5
+				Total: 0.0
+			</Item>
+		</ListaDeCompras>
+	</Usuario>
+	<Usuario>
+		Nombre: Mr_Cris
+		Contraseña: 789123456
+		<ListaDeCompras>
+			<Item>
+				Id: 2
+				Nombre: poto
+				Precio: 5.0
+				Cantidad: 5
+				Total: 25.0
+			</Item>
+			<Item>
+				Id: 1
+				Nombre: poto
+				Precio: 5.0
+				Cantidad: 5
+				Total: 25.0
+			</Item>
+		</ListaDeCompras>
+	</Usuario>
+</ListaDeUsuarios>

@@ -58,7 +58,7 @@ public class RegisterController {
         }
 
         // Intenta agregar el usuario a la lista
-        boolean isAdded = userList.add(U, Pw);
+        boolean isAdded = userList.AddUser(U, Pw);
 
         // Si el usuario ya existe, la función add devolverá false y no se continuará con la transición
         if ( !isAdded ) { return; }
