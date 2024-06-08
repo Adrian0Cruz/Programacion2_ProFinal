@@ -7,10 +7,11 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" fx:id="But_Exit" onDragDetected="#Exit" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.IndexController">
+<AnchorPane id="AnchorPane" fx:id="But_Exit" onDragDetected="#Exit" prefHeight="600.0" prefWidth="900.0" stylesheets="@../Styles/globalStyle.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.IndexController">
     <stylesheets>
         <URL value="@/Styles/Index.css" />
     </stylesheets>
@@ -41,7 +42,8 @@
          </font>
       </Button>
       <Separator focusTraversable="false" layoutY="64.0" prefWidth="900.0" style="-fx-background-color: black;" />
-      <Pane layoutX="686.0" layoutY="86.0" prefHeight="500.0" prefWidth="200.0" style="-fx-background-color: lightblue; -fx-background-radius: 8%;">
+      <BorderPane layoutX="14.0" layoutY="74.0" prefHeight="512.0" prefWidth="658.0" style="-fx-background-color: lightgray;" />
+      <Pane layoutX="686.0" layoutY="74.0" prefHeight="512.0" prefWidth="200.0" style="-fx-background-color: lightblue;">
          <children>
             <Button layoutX="36.0" layoutY="16.0" mnemonicParsing="false" onAction="#AddProduct" prefHeight="32.0" prefWidth="128.0" text="Catalogo">
                <font>
@@ -68,21 +70,25 @@
                   <Font name="System Bold Italic" size="16.0" />
                </font>
             </Button>
-            <Label layoutX="45.0" layoutY="256.0" prefHeight="32.0" text="Administrador" textFill="WHITE">
-               <font>
-                  <Font name="System Bold" size="16.0" />
-               </font>
-            </Label>
-            <Button layoutX="36.0" layoutY="304.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="128.0" text="DashBoard">
-               <font>
-                  <Font name="System Bold Italic" size="16.0" />
-               </font>
-            </Button>
-            <Button layoutX="26.0" layoutY="352.0" mnemonicParsing="false" prefHeight="32.0" text="Administrar User">
-               <font>
-                  <Font name="System Bold Italic" size="16.0" />
-               </font>
-            </Button>
+            <Pane layoutY="262.0" prefHeight="256.0" prefWidth="200.0" style="-fx-background-color: blue;">
+               <children>
+                  <Label layoutX="45.0" layoutY="62.0" prefHeight="32.0" text="Administrador" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                  </Label>
+                  <Button layoutX="36.0" layoutY="110.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="128.0" text="DashBoard">
+                     <font>
+                        <Font name="System Bold Italic" size="16.0" />
+                     </font>
+                  </Button>
+                  <Button layoutX="26.0" layoutY="158.0" mnemonicParsing="false" prefHeight="32.0" text="Administrar User">
+                     <font>
+                        <Font name="System Bold Italic" size="16.0" />
+                     </font>
+                  </Button>
+               </children>
+            </Pane>
          </children></Pane>
    </children>
 </AnchorPane>

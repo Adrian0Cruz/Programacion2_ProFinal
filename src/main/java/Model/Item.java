@@ -23,6 +23,7 @@ public class Item {
     public int GetCant() { return Cant; }
     public void setCant(int Cant) { this.Cant = Cant; }
     public double GetTotal (  ) { return Total; }
+    public void setTotal ( double total ) { this.Total = total; }
 
     @Override
     public String toString() {

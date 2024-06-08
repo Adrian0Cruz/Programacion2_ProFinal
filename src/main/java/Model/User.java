@@ -3,6 +3,7 @@ package Model;
 //import org.apache.commons.codec.digest.DigestUtils;
 public class User extends Node {
     ShoppingList shoppingList;
+    FavoriteList FavoriteList;
     private String Name;
     private String PassWord;
 
@@ -22,11 +23,23 @@ public class User extends Node {
     public void setShoppingList(ShoppingList shoppingList) {
         this.shoppingList = shoppingList;
     }
+    
+    public void addItemToFavoriteList(String name, double price, int Cant) {
+        Item newItem = new Item(name, price, Cant);
+        FavoriteList.addItem(newItem);
+    }
+    public void printUserFavoriteList() { FavoriteList.printShoppingList(); }
+    public FavoriteList getFavoriteList() { return FavoriteList; }
+    public void setFavoriteList(FavoriteList FavoriteList) {
+        this.FavoriteList = FavoriteList;
+    }
+    
     public User(String Name, String PassWord ) {
         super();
         this.Name = Name;
         this.PassWord = PassWord;
         this.shoppingList = new ShoppingList();
+        this.FavoriteList = new FavoriteList();
     }
 
     @Override

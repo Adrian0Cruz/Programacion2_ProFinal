@@ -103,10 +103,11 @@ public class List_User {
                 writer.println("\t<Usuario>");
                 writer.println("\t\tNombre: " + current.getName());
                 writer.println("\t\tContraseña: " + current.getPassWord());
-                // Verificar si el usuario tiene ítems en su lista de compras
-                ItemNode itemCurrent = current.shoppingList.head;
-                if (itemCurrent != null) {
+
+                // Guardar la lista de compras
+                if (current.getShoppingList() != null && current.getShoppingList().head != null) {
                     writer.println("\t\t<ListaDeCompras>");
+                    ItemNode itemCurrent = current.getShoppingList().head;
                     do {
                         Item item = itemCurrent.getItem();
                         writer.println("\t\t\t<Item>");
@@ -117,9 +118,28 @@ public class List_User {
                         writer.println("\t\t\t\tTotal: " + item.GetTotal());
                         writer.println("\t\t\t</Item>");
                         itemCurrent = (ItemNode) itemCurrent.Sig;
-                    } while (itemCurrent != current.shoppingList.head);
+                    } while (itemCurrent != current.getShoppingList().head);
                     writer.println("\t\t</ListaDeCompras>");
                 }
+
+                // Guardar la lista de favoritos
+                if (current.getFavoriteList() != null && current.getFavoriteList().head != null) {
+                    writer.println("\t\t<ListaDeFavoritos>");
+                    ItemNode itemCurrent = current.getFavoriteList().head;
+                    do {
+                        Item item = itemCurrent.getItem();
+                        writer.println("\t\t\t<Item>");
+                        writer.println("\t\t\t\tId: " + item.getId());
+                        writer.println("\t\t\t\tNombre: " + item.getName());
+                        writer.println("\t\t\t\tPrecio: " + item.getPrice());
+                        writer.println("\t\t\t\tCantidad: " + item.GetCant());
+                        writer.println("\t\t\t\tTotal: " + item.GetTotal());
+                        writer.println("\t\t\t</Item>");
+                        itemCurrent = (ItemNode) itemCurrent.Sig;
+                    } while (itemCurrent != current.getFavoriteList().head);
+                    writer.println("\t\t</ListaDeFavoritos>");
+                }
+
                 writer.println("\t</Usuario>");
                 current = (User) current.Sig;
             }
@@ -128,54 +148,71 @@ public class List_User {
             e.printStackTrace();
         }
     }
+
     public void ImportFromTxt() {
-        String fileName = "Users.txt";
-        try (BufferedReader reader = new BufferedReader(new FileReader(fileName))) {
-            String line;
-            String name = null;
-            String password = null;
-            ShoppingList currentShoppingList = new ShoppingList();
-            Item currentItem = null;
-            while ((line = reader.readLine()) != null) {
-                if (line.trim().equals("<Usuario>")) {
-                    currentShoppingList = new ShoppingList(); // Preparamos una nueva lista de compras
-                } else if (line.startsWith("\t\tNombre: ")) {
-                    name = line.substring("\t\tNombre: ".length()).trim();
-                } else if (line.startsWith("\t\tContraseña: ")) {
-                    password = line.substring("\t\tContraseña: ".length()).trim();
-                } else if (line.trim().equals("<ListaDeCompras>")) {
-                    // No es necesario hacer nada aquí por ahora
-                } else if (line.trim().equals("</ListaDeCompras>")) {
-                    // No es necesario hacer nada aquí por ahora
-                } else if (line.trim().startsWith("<Item>")) {
-                    currentItem = new Item(); // Inicializa un nuevo ítem
-                } else if (line.trim().startsWith("</Item>")) {
-                    currentShoppingList.addItem(currentItem); // Añade el ítem a la lista de compras
-                } else if (line.startsWith("\t\t\t\tId: ")) {
-                    int id = Integer.parseInt(line.substring("\t\t\t\tId: ".length()).trim());
-                    currentItem.setId(id); // Asigna el ID al ítem actual
-                } else if (line.startsWith("\t\t\t\tNombre: ")) {
-                    String itemName = line.substring("\t\t\t\tNombre: ".length()).trim();
-                    currentItem.setName(itemName); // Asigna el nombre al ítem actual
-                } else if (line.startsWith("\t\t\t\tPrecio: ")) {
-                    double itemPrice = Double.parseDouble(line.substring("\t\t\t\tPrecio: ".length()).trim());
-                    currentItem.setPrice(itemPrice); // Asigna el precio al ítem actual
-                } else if (line.startsWith("\t\t\t\tCantidad: ")) {
-                    int itemQuantity = Integer.parseInt(line.substring("\t\t\t\tCantidad: ".length()).trim());
-                    currentItem.setCant(itemQuantity); // Asigna la cantidad al ítem actual
-                } else if (line.trim().equals("</Usuario>")) {
-                    if (name != null && password != null) {
-                        User newUser = new User(name, password);
-                        newUser.setShoppingList(currentShoppingList); // Asociamos la lista de compras al usuario
-                        this.AddUser(newUser); // Añadimos el usuario con su lista de compras
-                        name = null; // Restablecer después de agregar el usuario
-                        password = null; // Restablecer después de agregar el usuario
-                        currentShoppingList = new ShoppingList(); // Preparamos una nueva lista para el siguiente usuario
-                    }
+    String fileName = "Users.txt";
+    try (BufferedReader reader = new BufferedReader(new FileReader(fileName))) {
+        String line;
+        String name = null;
+        String password = null;
+        ShoppingList currentShoppingList = null;
+        FavoriteList currentFavoriteList = null;
+        Item currentItem = null;
+        boolean insideShoppingList = false;
+        boolean insideFavoriteList = false;
+
+        while ((line = reader.readLine()) != null) {
+            if (line.trim().equals("<Usuario>")) {
+                currentShoppingList = new ShoppingList();
+                currentFavoriteList = new FavoriteList();
+            } else if (line.startsWith("\t\tNombre: ")) {
+                name = line.substring("\t\tNombre: ".length()).trim();
+            } else if (line.startsWith("\t\tContraseña: ")) {
+                password = line.substring("\t\tContraseña: ".length()).trim();
+            } else if (line.trim().equals("<ListaDeCompras>")) {
+                insideShoppingList = true;
+            } else if (line.trim().equals("</ListaDeCompras>")) {
+                insideShoppingList = false;
+            } else if (line.trim().equals("<ListaDeFavoritos>")) {
+                insideFavoriteList = true;
+            } else if (line.trim().equals("</ListaDeFavoritos>")) {
+                insideFavoriteList = false;
+            } else if (line.trim().startsWith("<Item>")) {
+                currentItem = new Item();
+            } else if (line.trim().startsWith("</Item>")) {
+                if (insideShoppingList) {
+                    currentShoppingList.addItem(currentItem);
+                } else if (insideFavoriteList) {
+                    currentFavoriteList.addItem(currentItem);
+                }
+            } else if (line.startsWith("\t\t\t\tId: ")) {
+                int id = Integer.parseInt(line.substring("\t\t\t\tId: ".length()).trim());
+                currentItem.setId(id);
+            } else if (line.startsWith("\t\t\t\tNombre: ")) {
+                String itemName = line.substring("\t\t\t\tNombre: ".length()).trim();
+                currentItem.setName(itemName);
+            } else if (line.startsWith("\t\t\t\tPrecio: ")) {
+                double itemPrice = Double.parseDouble(line.substring("\t\t\t\tPrecio: ".length()).trim());
+                currentItem.setPrice(itemPrice);
+            } else if (line.startsWith("\t\t\t\tCantidad: ")) {
+                int itemQuantity = Integer.parseInt(line.substring("\t\t\t\tCantidad: ".length()).trim());
+                currentItem.setCant(itemQuantity);
+                // Calcula el total para el ítem aquí, donde tienes acceso a itemPrice y itemQuantity
+                currentItem.setTotal(currentItem.getPrice() * currentItem.GetCant());
+            } else if (line.trim().equals("</Usuario>")) {
+                if (name != null && password != null) {
+                    User newUser = new User(name, password);
+                    newUser.setShoppingList(currentShoppingList);
+                    newUser.setFavoriteList(currentFavoriteList);
+                    this.AddUser(newUser);
+                    name = null;
+                    password = null;
                 }
             }
-        } catch (IOException e) {
-            e.printStackTrace();
         }
+    } catch (IOException e) {
+        e.printStackTrace();
     }
+}
+
 }

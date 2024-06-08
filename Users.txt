@@ -17,13 +17,6 @@
 		Contraseña: 456789123
 		<ListaDeCompras>
 			<Item>
-				Id: 3
-				Nombre: poto
-				Precio: 5.0
-				Cantidad: 5
-				Total: 25.0
-			</Item>
-			<Item>
 				Id: 2
 				Nombre: poto
 				Precio: 5.0
@@ -35,9 +28,18 @@
 				Nombre: poto
 				Precio: 5.0
 				Cantidad: 5
-				Total: 0.0
+				Total: 25.0
 			</Item>
 		</ListaDeCompras>
+		<ListaDeFavoritos>
+			<Item>
+				Id: 1
+				Nombre: suka
+				Precio: 2.0
+				Cantidad: 52
+				Total: 104.0
+			</Item>
+		</ListaDeFavoritos>
 	</Usuario>
 	<Usuario>
 		Nombre: Mr_Cris

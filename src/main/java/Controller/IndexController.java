@@ -27,7 +27,10 @@ public class IndexController {
     private void AddProduct (  ) {
         User CurrentUser = userList.searchByName(UserNa.getText());
         Item item = new Item("poto" , 5, 5);
-        CurrentUser.getShoppingList().addItem(item);
+        //CurrentUser.getShoppingList().addItem(item);
+        
+        Item item2 = new Item("suka" , 3, 50);
+        CurrentUser.getFavoriteList().addItem(item2);
         userList.saveToTxt();
     }
 }
