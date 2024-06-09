@@ -4,6 +4,7 @@ package Model;
 public class User extends Node {
     ShoppingList shoppingList;
     FavoriteList FavoriteList;
+    private PurchaseHistory purchaseHistory;
     private String Name;
     private String PassWord;
 
@@ -14,6 +15,7 @@ public class User extends Node {
     public String getPassWord (  ) { return PassWord; }
     public void setPassWord ( String PassWord ) { this.PassWord = PassWord; }
     
+    //lista de compra
     public void addItemToShoppingList(String name, double price, int Cant) {
         Item newItem = new Item(name, price, Cant);
         shoppingList.addItem(newItem);
@@ -24,6 +26,7 @@ public class User extends Node {
         this.shoppingList = shoppingList;
     }
     
+    //favorite
     public void addItemToFavoriteList(String name, double price, int Cant) {
         Item newItem = new Item(name, price, Cant);
         FavoriteList.addItem(newItem);
@@ -34,14 +37,33 @@ public class User extends Node {
         this.FavoriteList = FavoriteList;
     }
     
+    
+    //historial
+    public void addPurchase ( Item item ) { 
+        this.purchaseHistory.addPurchase ( item );
+    }
+
+    public void printUserPurchaseHistory() {
+        this.purchaseHistory.printPurchaseHistory();
+    }
+    public void setPurchaseHistory(PurchaseHistory purchaseHistory) {
+        this.purchaseHistory = purchaseHistory;
+    }
+    public PurchaseHistory getPurchaseHistory (  ) { return purchaseHistory; }
+    
     public User(String Name, String PassWord ) {
         super();
         this.Name = Name;
         this.PassWord = PassWord;
         this.shoppingList = new ShoppingList();
         this.FavoriteList = new FavoriteList();
+        this.purchaseHistory = new PurchaseHistory();
     }
-
+    public void completePurchase() {
+        if (this.shoppingList != null && this.purchaseHistory != null) {
+            this.shoppingList.purchaseItems(this.purchaseHistory);
+        }
+    }
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();

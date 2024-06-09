@@ -30,7 +30,11 @@ public class IndexController {
         //CurrentUser.getShoppingList().addItem(item);
         
         Item item2 = new Item("suka" , 3, 50);
-        CurrentUser.getFavoriteList().addItem(item2);
+        //CurrentUser.getFavoriteList().addItem(item2);
+        
+        Item item3 = new Item("monda" , 4, 20);
+        //CurrentUser.getPurchaseHistory().addPurchase(item3);
+        CurrentUser.completePurchase();
         userList.saveToTxt();
     }
 }

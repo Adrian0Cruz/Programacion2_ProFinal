@@ -1,14 +1,15 @@
 package Model;
 //@author Jesús Hernández
-public class ShoppingList {
+public class PurchaseHistory {
     ItemNode head;
     private int contadorId; // Contador para los IDs de los ítems
 
-    public ShoppingList() {
+    public PurchaseHistory() {
         this.head = null;
-        this.contadorId = 0; // Inicializa el contador de ID
+        this.contadorId = 0;
     }
-    public void addItem(Item item) {
+
+    public void addPurchase(Item item) {
         item.setId(++contadorId); // Asigna un nuevo ID al ítem
         ItemNode newNode = new ItemNode(item);
         if (head == null) {
@@ -21,28 +22,16 @@ public class ShoppingList {
             newNode.Ant = head.Ant;
             head.Ant.Sig = newNode;
             head.Ant = newNode;
-            head = newNode; // Actualiza el head para apuntar al nuevo nodo
         }
     }
-    public void printShoppingList() {
+
+    public void printPurchaseHistory() {
         if (head != null) {
             ItemNode current = head;
             do {
                 System.out.println(current.getItem());
                 current = (ItemNode) current.Sig;
             } while (current != head); // Continúa hasta que se regrese al head
-        }
-    }
-    public void purchaseItems(PurchaseHistory purchaseHistory) {
-        if (head != null) {
-            ItemNode current = head;
-            do {
-                purchaseHistory.addPurchase(current.getItem()); // Añadir al historial de compras
-                current = (ItemNode) current.Sig;
-            } while (current != head);
-
-            // Resetear la lista de compras
-            head = null;
         }
     }
 }
