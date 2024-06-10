@@ -33,4 +33,16 @@ public class FavoriteList {
             } while (current != head); // Continúa hasta que se regrese al head
         }
     }
+    public void transferToFavorites(ShoppingList shoppingList) {
+        if (head != null) {
+            ItemNode current = head;
+            do {
+                shoppingList.addItem(current.getItem()); // Añadir a la lista de compras
+                current = (ItemNode) current.Sig;
+            } while (current != head);
+
+            // Resetear la lista de favoritos
+            head = null;
+        }
+    }
 }

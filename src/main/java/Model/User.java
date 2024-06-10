@@ -59,6 +59,11 @@ public class User extends Node {
         this.FavoriteList = new FavoriteList();
         this.purchaseHistory = new PurchaseHistory();
     }
+    public void transferFavoritesToShoppingList() {
+        if (this.FavoriteList != null && this.shoppingList != null) {
+            this.FavoriteList.transferToFavorites(this.shoppingList);
+        }
+    }
     public void completePurchase() {
         if (this.shoppingList != null && this.purchaseHistory != null) {
             this.shoppingList.purchaseItems(this.purchaseHistory);
