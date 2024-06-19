@@ -7,6 +7,7 @@ public class User extends Node {
     private PurchaseHistory purchaseHistory;
     private String Name;
     private String PassWord;
+    private boolean IsAdmin;
 
     public User (  ) { super(); }
 
@@ -14,6 +15,8 @@ public class User extends Node {
     public void setName ( String Name ) { this.Name = Name; }
     public String getPassWord (  ) { return PassWord; }
     public void setPassWord ( String PassWord ) { this.PassWord = PassWord; }
+    public boolean getIsAdmin (  ) { return this.IsAdmin; }
+    public void setIsAdmin ( boolean IsAdmin ) { this.IsAdmin = IsAdmin; }
     
     //lista de compra
     public void addItemToShoppingList(String name, double price, int Cant) {
@@ -37,7 +40,6 @@ public class User extends Node {
         this.FavoriteList = FavoriteList;
     }
     
-    
     //historial
     public void addPurchase ( Item item ) { 
         this.purchaseHistory.addPurchase ( item );
@@ -55,6 +57,7 @@ public class User extends Node {
         super();
         this.Name = Name;
         this.PassWord = PassWord;
+        this.IsAdmin = false;
         this.shoppingList = new ShoppingList();
         this.FavoriteList = new FavoriteList();
         this.purchaseHistory = new PurchaseHistory();

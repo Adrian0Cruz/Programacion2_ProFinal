@@ -39,11 +39,8 @@ public class LoginController {
     private PasswordField Word;
     @FXML
     private Pane pane;
-
     @FXML
-    private void Exit() throws IOException {
-        System.exit(0);
-    }
+    private void Exit() throws IOException { System.exit(0); }
 
     @FXML
     private void ChangeRegister() throws IOException {

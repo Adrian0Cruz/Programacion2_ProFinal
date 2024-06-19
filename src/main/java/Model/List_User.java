@@ -103,7 +103,7 @@ public class List_User {
                 writer.println("\t<Usuario>");
                 writer.println("\t\tNombre: " + current.getName());
                 writer.println("\t\tContraseña: " + current.getPassWord());
-
+                writer.println("\t\tEsAdmin: " + current.getIsAdmin());
                 // Guardar la lista de compras
                 if (current.getShoppingList() != null && current.getShoppingList().head != null) {
                     writer.println("\t\t<ListaDeCompras>");
@@ -173,6 +173,7 @@ public class List_User {
             String line;
             String name = null;
             String password = null;
+            boolean isAdmin = false; // Variable para rastrear si el usuario es administrador
             ShoppingList currentShoppingList = null;
             FavoriteList currentFavoriteList = null;
             PurchaseHistory currentPurchaseHistory = null;
@@ -190,6 +191,8 @@ public class List_User {
                     name = line.substring("\t\tNombre: ".length()).trim();
                 } else if (line.startsWith("\t\tContraseña: ")) {
                     password = line.substring("\t\tContraseña: ".length()).trim();
+                } else if (line.startsWith("\t\tEsAdmin: ")) {
+                    isAdmin = Boolean.parseBoolean(line.substring("\t\tEsAdmin: ".length()).trim());
                 } else if (line.trim().equals("<ListaDeCompras>")) {
                     insideShoppingList = true;
                 } else if (line.trim().equals("</ListaDeCompras>")) {
@@ -221,21 +224,28 @@ public class List_User {
                 } else if (line.startsWith("\t\t\t\tPrecio: ")) {
                     double itemPrice = Double.parseDouble(line.substring("\t\t\t\tPrecio: ".length()).trim());
                     currentItem.setPrice(itemPrice);
-                    // Asegúrate de que la cantidad ya esté establecida antes de calcular el total
                 } else if (line.startsWith("\t\t\t\tCantidad: ")) {
                     int itemQuantity = Integer.parseInt(line.substring("\t\t\t\tCantidad: ".length()).trim());
                     currentItem.setCant(itemQuantity);
-                    // Ahora que tienes tanto el precio como la cantidad, calcula el total
                     currentItem.setTotal(currentItem.getPrice() * currentItem.GetCant());
                 } else if (line.trim().equals("</Usuario>")) {
                     if (name != null && password != null) {
-                        User newUser = new User(name, password);
-                        newUser.setShoppingList(currentShoppingList);
-                        newUser.setFavoriteList(currentFavoriteList);
-                        newUser.setPurchaseHistory(currentPurchaseHistory);
-                        this.AddUser(newUser);
+                        User existingUser = searchByName(name);
+                        if (existingUser != null) {
+                            // El usuario ya existe, actualizamos su estado de administrador
+                            existingUser.setIsAdmin(isAdmin);
+                        } else {
+                            // El usuario no existe, creamos uno nuevo
+                            User newUser = new User(name, password);
+                            newUser.setIsAdmin(isAdmin);
+                            newUser.setShoppingList(currentShoppingList);
+                            newUser.setFavoriteList(currentFavoriteList);
+                            newUser.setPurchaseHistory(currentPurchaseHistory);
+                            this.AddUser(newUser);
+                        }
                         name = null;
                         password = null;
+                        isAdmin = false; // Restablecer el valor para el próximo usuario
                     }
                 }
             }

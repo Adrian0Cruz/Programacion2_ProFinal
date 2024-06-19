@@ -7,64 +7,67 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.SVGPath?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: transparent; -fx-background-radius: 4%;" stylesheets="@../Styles/globalStyle.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.RegisterController">
-   <children>
-      <Pane fx:id="pane" layoutX="450.0" prefHeight="600.0" prefWidth="450.0" style="-fx-background-color: lightblue; -fx-background-radius: 8% 0% 0% 8%;">
-         <children>
-            <Button fx:id="ExitBut" focusTraversable="false" layoutX="382.0" layoutY="14.0" mnemonicParsing="false" onAction="#Exit" text="X" textFill="RED">
-               <font>
-                  <Font name="System Bold" size="16.0" />
-               </font>
-            </Button>
-            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="150.0" layoutY="75.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../Image/carrito-de-compras.png" />
-               </image>
-            </ImageView>
-            <Label layoutX="171.0" layoutY="277.0" text="LOG IN">
-               <font>
-                  <Font name="System Bold Italic" size="32.0" />
-               </font>
-            </Label>
-            <Button fx:id="primaryButton1" focusTraversable="false" layoutX="183.0" layoutY="432.0" onAction="#ChangeLogin" prefHeight="32.0" text="Inicia Seción">
-               <font>
-                  <Font name="System Bold Italic" size="16.0" />
-               </font>
-            </Button>
-            <Text layoutX="159.0" layoutY="429.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ya estás registrado?" textAlignment="CENTER" wrappingWidth="163.98749999999995">
-               <font>
-                  <Font name="Arial" size="16.0" />
-               </font>
-            </Text>
-         </children>
-      </Pane>
-      <TextField fx:id="User" layoutX="97.0" layoutY="284.0" prefHeight="32.0" prefWidth="256.0" promptText="User Name">
-         <font>
-            <Font name="System Bold" size="14.0" />
-         </font>
-      </TextField>
-      <TextField fx:id="Word" focusTraversable="false" layoutX="95.0" layoutY="357.0" prefHeight="32.0" prefWidth="256.0" promptText="Pass Word">
-         <font>
-            <Font name="System Bold" size="14.0" />
-         </font>
-      </TextField>
-      <Button fx:id="primaryButton" layoutX="167.0" layoutY="434.0" onAction="#CrearCuenta" prefHeight="32.0" text="Registrame!">
-         <font>
-            <Font name="System Bold Italic" size="16.0" />
-         </font>
-      </Button>
-      <ImageView fitHeight="32.0" fitWidth="32.0" layoutX="48.0" layoutY="284.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../Image/usuario.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="32.0" fitWidth="32.0" layoutX="48.0" layoutY="357.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../Image/contrasena.png" />
-         </image>
-      </ImageView>
-   </children>
+<AnchorPane prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: #0d1117; -fx-background-radius: 1em;" stylesheets="@../Styles/globalStyle.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.RegisterController">
+    <children>
+        <Pane fx:id="pane" layoutX="450.0" prefHeight="600.0" prefWidth="450.0" style="-fx-background-color: #161b22; -fx-background-radius: 8% 0% 0% 8%;">
+            <children>
+                <Button fx:id="closeButton" focusTraversable="false" layoutX="382.0" layoutY="14.0" mnemonicParsing="false" onAction="#Exit" text="X" textFill="RED">
+                    <font>
+                        <Font name="System Bold" size="16.0" />
+                    </font>
+                </Button>
+                <!-- ImageView para la imagen del carrito de compras -->
+                <ImageView fx:id="shoppingCartImageView" fitHeight="150.0" fitWidth="200.0" layoutX="150.0" layoutY="75.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../Image/carrito-de-compras.png" />
+                    </image>
+                </ImageView>
+                <Label layoutX="171.0" layoutY="277.0" text="LOG IN" textFill="WHITE">
+                    <font>
+                        <Font name="System Bold Italic" size="32.0" />
+                    </font>
+                </Label>
+                <Button fx:id="primaryButton" focusTraversable="false" layoutX="183.0" layoutY="432.0" onAction="#ChangeLogin" prefHeight="32.0" text="Inicia Seción" textFill="WHITE">
+                    <font>
+                        <Font name="System Bold Italic" size="16.0" />
+                    </font>
+                </Button>
+                <Text fill="#ff8000" layoutX="159.0" layoutY="429.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ya estás registrado?" textAlignment="CENTER" wrappingWidth="163.98749999999995">
+                    <font>
+                        <Font name="Arial" size="16.0" />
+                    </font>
+                </Text>
+            </children>
+        </Pane>
+        <TextField fx:id="User" layoutX="97.0" layoutY="284.0" prefHeight="32.0" prefWidth="256.0" promptText="User Name">
+            <font>
+                <Font name="System Bold" size="14.0" />
+            </font>
+        </TextField>
+        <TextField fx:id="Word" focusTraversable="false" layoutX="95.0" layoutY="357.0" prefHeight="32.0" prefWidth="256.0" promptText="Pass Word">
+            <font>
+                <Font name="System Bold" size="14.0" />
+            </font>
+        </TextField>
+        <Button fx:id="secondaryButton" layoutX="167.0" layoutY="434.0" onAction="#CrearCuenta" prefHeight="32.0" text="Registrame!" textFill="WHITE">
+            <font>
+                <Font name="System Bold Italic" size="16.0" />
+            </font>
+        </Button>
+        <ImageView fitHeight="32.0" fitWidth="32.0" layoutX="48.0" layoutY="357.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../Image/contrasena.png" />
+            </image>
+        </ImageView>
+        <ImageView fx:id="zoomedImageView" fitHeight="256.0" fitWidth="200.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" visible="false">
+            <image>
+                <Image url="@../Image/carrito-de-compras.png" />
+            </image>
+        </ImageView>
+      <SVGPath content="M21,20a2,2,0,0,1-2,2H5a2,2,0,0,1-2-2,6,6,0,0,1,6-6h6A6,6,0,0,1,21,20Zm-9-8A5,5,0,1,0,7,7,5,5,0,0,0,12,12Z" fill="WHITE" layoutX="52.0" layoutY="288.0" style="-fx-scale-x: 1; -fx-scale-y: 1;" />
+    </children>
 </AnchorPane>

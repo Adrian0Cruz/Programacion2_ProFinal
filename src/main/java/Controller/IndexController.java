@@ -9,10 +9,10 @@ public class IndexController {
     @FXML
     private void initialize() {
         // Recuperar el nombre de usuario de las preferencias
-        Preferences userPrefs = Preferences.userRoot().node(LoginController.class.getName());
-        String loggedInUser = userPrefs.get("loggedInUser", "Usuario");
+        Preferences userPrefs = Preferences.userRoot().node ( LoginController.class.getName() );
+        String loggedInUser = userPrefs.get( "loggedInUser", "Usuario" );
         // Establecer el nombre de usuario en el Label
-        UserNa.setText(loggedInUser);
+        UserNa.setText ( loggedInUser );
     }
     private final UserListSingleton userListSingleton = UserListSingleton.getInstance();
     private final List_User userList = userListSingleton.getUserList();
@@ -25,15 +25,15 @@ public class IndexController {
     private void Close (  ) throws IOException { Main.setRoot ( "Login" ); }
     @FXML
     private void AddProduct (  ) {
-        User CurrentUser = userList.searchByName(UserNa.getText());
+        User CurrentUser = userList.searchByName ( UserNa.getText () );
         Item item = new Item("poto" , 5, 5);
-        //CurrentUser.getShoppingList().addItem(item);
+        CurrentUser.getShoppingList().addItem(item);
         
         Item item2 = new Item("suka" , 3, 50);
-        //CurrentUser.getFavoriteList().addItem(item2);
+        CurrentUser.getFavoriteList().addItem(item2);
         
         Item item3 = new Item("monda" , 4, 20);
-        //CurrentUser.getPurchaseHistory().addPurchase(item3);
+        CurrentUser.getPurchaseHistory().addPurchase(item3);
         CurrentUser.completePurchase();
         userList.saveToTxt();
     }

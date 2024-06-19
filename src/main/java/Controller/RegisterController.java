@@ -8,6 +8,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.Alert;
 import javafx.animation.TranslateTransition;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.util.Duration;
 
@@ -23,6 +24,9 @@ public class RegisterController {
     private TextField Word;
     @FXML
     private Pane pane;
+    @FXML
+    private ImageView shoppingCartImageView;
+    private ImageView zoomedImageView;
 
     @FXML
     private void Exit() throws IOException { System.exit(0); }
@@ -31,7 +35,6 @@ public class RegisterController {
     private void ChangeLogin() throws IOException {
         // Asegúrate de que el panel esté al frente antes de iniciar la transición
         pane.toFront();
-
         // Crea la transición para mover el panel
         TranslateTransition transition = new TranslateTransition(Duration.seconds(1), pane);
         transition.setToX(-450); // Ajusta este valor para que el panel se mueva completamente fuera de la vista

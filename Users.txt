@@ -2,13 +2,21 @@
 	<Usuario>
 		Nombre: Adrian_Cruz
 		Contraseña: 123456789
+		EsAdmin: true
 	</Usuario>
 	<Usuario>
 		Nombre: Kyo
 		Contraseña: 456789123
+		EsAdmin: true
 	</Usuario>
 	<Usuario>
 		Nombre: Mr_Cris
 		Contraseña: 789123456
+		EsAdmin: true
+	</Usuario>
+	<Usuario>
+		Nombre: admin
+		Contraseña: 123
+		EsAdmin: false
 	</Usuario>
 </ListaDeUsuarios>

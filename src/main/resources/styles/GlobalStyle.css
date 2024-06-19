@@ -11,11 +11,21 @@
     -fx-text-fill : white;
 }
 
-#loginButton:hover{
+.inputField:hover{
     -fx-background-color :  rgb(254,82,2);
 }
 
-#loginButton{
+.inputField{
+    -fx-background-radius : .5em;
+    -fx-border-radius : .5em;
+    -fx-background-color :  rgb(255,128,0);
+}
+
+#primaryButton:hover{
+    -fx-background-color :  rgb(254,82,2);
+}
+
+#primaryButton{
     -fx-background-radius : .5em;
     -fx-border-radius : .5em;
     -fx-background-color :  rgb(255,128,0);
@@ -29,20 +39,20 @@
     -fx-fill : white;
 }
 
-#signUpButton:hover{
+#secondaryButton:hover{
     -fx-background-color : #301296;
 }
 
-#signUpButton{
+#secondaryButton{
     -fx-background-radius : .5em;
     -fx-border-radius : .5em;
     -fx-background-color : #123F93;
 }
 
-#newUser:focused{
+#signup_User:focused{
     -fx-border-color :  #123F93;
 }
 
-#newPassword:focused{
+#signup_Password:focused{
     -fx-border-color :  #123F93;
 }
