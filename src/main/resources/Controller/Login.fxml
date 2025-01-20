@@ -12,7 +12,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="600.0" prefWidth="900.0" style="-fx-background-radius: 1em; -fx-background-color: #0d1117;" stylesheets="@../Styles/globalStyle.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.LoginController">
+<AnchorPane prefHeight="600.0" prefWidth="900.0" style="-fx-background-radius: 1em; -fx-background-color: #1E1E1E;" stylesheets="@../Styles/globalStyle.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.LoginController">
     <children>
         <Pane fx:id="pane" prefHeight="600.0" prefWidth="450.0" style="-fx-background-color: #161b22; -fx-background-radius: 0 8% 8% 0;">
             <children>
@@ -43,7 +43,7 @@
                 <Image url="@../Image/contrasena.png" />
             </image>
         </ImageView>
-        <Button fx:id="closeButton" focusTraversable="false" layoutX="855.0" layoutY="14.0" mnemonicParsing="false" onAction="#Exit" text="X" textFill="RED">
+        <Button fx:id="closeButton" focusTraversable="false" layoutX="855.0" layoutY="14.0" mnemonicParsing="false" onAction="#Exit" styleClass="text-field" text="X" textFill="RED">
             <font>
                 <Font name="System Bold" size="16.0" />
             </font>
@@ -63,6 +63,16 @@
                 <Font name="System Bold Italic" size="16.0" />
             </font>
         </Button>
-      <SVGPath content="M21,20a2,2,0,0,1-2,2H5a2,2,0,0,1-2-2,6,6,0,0,1,6-6h6A6,6,0,0,1,21,20Zm-9-8A5,5,0,1,0,7,7,5,5,0,0,0,12,12Z" fill="WHITE" layoutX="516.0" layoutY="288.0" style="-fx-scale-x: 1; -fx-scale-y: 1;" />
+        <SVGPath content="M21,20a2,2,0,0,1-2,2H5a2,2,0,0,1-2-2,6,6,0,0,1,6-6h6A6,6,0,0,1,21,20Zm-9-8A5,5,0,1,0,7,7,5,5,0,0,0,12,12Z" fill="WHITE" layoutX="516.0" layoutY="288.0" style="-fx-scale-x: 1; -fx-scale-y: 1;" />
+        <Text fill="WHITE" fontSmoothingType="LCD" layoutX="580.0" layoutY="223.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bienvenido!" textAlignment="CENTER" wrappingWidth="189.60003662109375">
+            <font>
+                <Font name="Calibri Bold Italic" size="36.0" />
+            </font>
+        </Text>
+        <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="600.0" layoutY="51.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../Image/Temple.png" />
+            </image>
+        </ImageView>
     </children>
 </AnchorPane>

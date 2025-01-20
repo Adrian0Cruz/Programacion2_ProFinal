@@ -4,7 +4,7 @@
 
 .mainFxmlClass {
     .orangeButton:hover{
-
+        -fx-background-color : #301296;
     }
 
     .orangeButton{
@@ -37,6 +37,50 @@
         -fx-fill : white;
     }
 
+    .menuButton{
+        -fx-scale-x : .9;
+        -fx-scale-y : .9;
+        -fx-background-radius : 1.5em;
+    }
+
+    .scroll-pane > .viewport{
+        -fx-background-color : transparent;
+    }
+
+    .scroll-pane > .scroll-bar:vertical{
+        -fx-background-color : transparent;
+    }
+
+    .scroll-pane > .scroll-bar:vertical > .thumb{
+        -fx-background-color : rgb(100, 100, 100);
+    }
+
+    #productsHolder > .scroll-bar:vertical > .thumb{
+        -fx-background-color : rgb(150, 150, 150);
+    }
+
+    .scroll-pane > .scroll-bar:vertical > .increment-button{
+        -fx-opacity : 0;
+    }
+
+    .scroll-pane > .scroll-bar:vertical > .decrement-button{
+        -fx-opacity : 0;
+    }
+
+    .separator .line {
+        -fx-background-color: #525252;
+        -fx-pref-height: 1px;
+        -fx-border-color: null ;
+    }
+
+    .backButton{
+        -fx-fill : #8C8C8C;
+    }
+
+    .backButton:hover{
+        -fx-fill : white;
+    }
+
     #logOutButton:hover{
         -fx-background-color : red;
     }
@@ -64,5 +108,65 @@
     #editProfilePicture:hover{
         -fx-background-color : #CC6CE7;
         -fx-text-fill : white;
+    }
+
+    .combo-box {
+        -fx-font: 14px "Arial Rounded MT Bold";
+        -fx-background-color: transparent;
+        -fx-border-color: transparent;
+        -fx-border-width : 1.5px;
+        -fx-border-radius : 10px;
+    }
+
+    .combo-box .arrow-button {
+        -fx-background-color: transparent;
+        -fx-padding: 0.5em;
+    }
+
+    .combo-box .arrow-button .arrow {
+        -fx-background-color: #ffffff;
+    }
+
+    .combo-box .list-cell {
+        -fx-padding: 5 10 5 10;
+        -fx-background-color: #1e1e1e;
+        -fx-border-color: transparent;
+        -fx-background-radius : 10px;
+        -fx-text-fill : #747474;
+    }
+
+    .combo-box .list-cell:hover {
+        -fx-background-color: #363638;
+    }
+
+    .combo-box .list-cell:selected {
+        -fx-background-color: transparent;
+        -fx-text-fill: #ff8000;
+    }
+
+    .combo-box-popup .list-view {
+        -fx-background-color: #1e1e1e;
+    }
+
+    .combo-box-popup .scroll-bar:horizontal {
+        -fx-opacity: 0;
+        -fx-pref-width: 0;
+        -fx-pref-height: 0;
+        -fx-max-width: 0;
+        -fx-max-height: 0;
+    }
+
+    .text-area{
+        -fx-text-fill : white;
+        -fx-background-color : transparent;
+    }
+
+    .text-area .content{
+        -fx-background-color : transparent;
+    }
+
+    .text-area .scroll-bar:vertical .thumb,
+        .text-area .scroll-bar:horizontal .thumb {
+        -fx-opacity: 0;
     }
 }
